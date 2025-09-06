@@ -38,6 +38,7 @@ Các thành phần chính:
 ## 🖥️ Cách chạy chương trình
 1. Biên dịch:
    ```bash
-   g++ tsm.cpp -o tsm
-  ./tsm
-
+   g++ -o main main.cpp bellman.cpp tsm.cpp
+2. Chạy chương trình
+   ```bash
+   main
