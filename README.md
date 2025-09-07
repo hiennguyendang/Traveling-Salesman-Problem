@@ -4,41 +4,38 @@
 ![Algorithm](https://img.shields.io/badge/algorithm-DP%20%2B%20Bitmasking-green.svg)
 ![Status](https://img.shields.io/badge/status-completed-success.svg)
 
-## 📌 Giới thiệu
-Đây là bài tập lớn môn **Cấu trúc rời rạc** (Trường Đại học Bách khoa – ĐHQG TP.HCM).  
-Đề tài tập trung vào việc cài đặt và giải quyết **Bài toán Người đi bán hàng** (Travelling Salesman Problem - TSP) bằng cách kết hợp **Dynamic Programming (DP)** và **Bitmasking**.
+## 📌 Introduction
+This is a academic project for the **Discrete Structures** course focuses on implementing and solving the **Travelling Salesman Problem (TSP)** using a combination of **Dynamic Programming (DP)** and **Bitmasking** 
 
-- **Ngôn ngữ:** C++  
-- **Sinh viên thực hiện:** Nguyễn Đăng Hiên – MSSV: 2310926  
-- **Thời gian:** 06/2024  
+## 🚀 Idea and Methodology
+- **Language:** C++  
+- **Dynamic Programming (DP):** breaks the problem into smaller subproblems and stores intermediate results to avoid redundant computations.  
+- **Bitmasking:** uses bits to represent the set of visited cities, allowing efficient state management.  
 
-## 🚀 Ý tưởng và phương pháp
-- **Dynamic Programming (DP):** chia nhỏ bài toán thành các bài toán con và lưu kết quả trung gian để giảm tính toán lặp lại.  
-- **Bitmasking:** dùng bit để biểu diễn tập các thành phố đã đi qua, giúp quản lý trạng thái hiệu quả.  
+General recursive formula:
 
-Công thức đệ quy tổng quát:
 g(i, S) = min( C(i,k) + g(k, S - {k}) ) với k ∈ S
-- `i`: đỉnh hiện tại  
-- `S`: tập các đỉnh còn lại cần đi  
-- `C(i,k)`: chi phí đi từ i đến k  
+- `i`: current city  
+- `S`: set of remaining cities to visit  
+- `C(i, k)`: cost of traveling from `i` to `k`  
 
-## 📂 Cấu trúc mã nguồn
-- `tsm.h` : Khai báo lớp `TravelingSalesman` và các phương thức hỗ trợ.  
-- `tsm.cpp` : Hiện thực chi tiết các phương thức.  
+## 📂 Source Code Structure
+- `tsm.h` : Declaration of the `TravelingSalesman` class and helper methods.  
+- `tsm.cpp` : Implementation details of the methods.  
 
-Các thành phần chính:
-- `recursiveCalculate(pos, mask)`: hàm đệ quy chính tính chi phí tối ưu.  
-- `TravelingOutString()`: sinh chuỗi lộ trình tối ưu.  
-- Sử dụng mảng `valueCity` và `nextCity` để lưu chi phí và lộ trình.  
+Main components:
+- `recursiveCalculate(pos, mask)`: core recursive function to compute the optimal cost.  
+- `TravelingOutString()`: generates the optimal path string.  
+- Arrays `valueCity` and `nextCity` are used to store costs and route information.  
 
-## ⚡ Độ phức tạp
-- Độ phức tạp thời gian: **O(n² × 2ⁿ)**  
-- Tốt hơn so với brute force **O(n!)**, cho phép giải quyết TSP ở quy mô vừa.  
+## ⚡ Complexity
+- Time complexity: **O(n² × 2ⁿ)**  
+- More efficient than brute force **O(n!)**, making it feasible to solve medium-sized TSP instances.  
 
-## 🖥️ Cách chạy chương trình
-1. Biên dịch:
+## 🖥️ How to Run
+1. Compile:
    ```bash
    g++ -o main main.cpp bellman.cpp tsm.cpp
-2. Chạy chương trình
+2. Run:
    ```bash
    main
